@@ -1,6 +1,6 @@
 let canvasContainer = document.querySelector("#main-canvas-container");
 let scene, camera, renderer;
-let cube
+let cube, sphere;
 let factor = 0.05;
 
 //----------
@@ -21,13 +21,16 @@ let init = () => {
   // Attach the canvas to the DOM.
   canvasContainer.appendChild(renderer.domElement);
   createCube();
+  createSphere();
 }
 
 //----------
 let mainLoop = () => {
   cube.rotation.y += factor;
   cube.position.x += factor;
-  console.log(cube.position.x);
+  sphere.rotation.z += factor;
+  sphere.position.y += factor;
+  console.log(sphere.position);
 
   if (cube.position.x <= -2 || cube.position.x >= 2) {
     factor *= -1;
@@ -49,6 +52,15 @@ let createCube = () => {
 
   // Add it to the scene.
   scene.add(cube);
+}
+
+let createSphere = () => {
+  let geometry = new THREE.SphereGeometry(.25, 10, 10);
+  let material = new THREE.MeshBasicMaterial({color: 0x00a1cb, wireframe: true})
+
+  sphere = new THREE.Mesh(geometry, material);
+
+  scene.add(sphere);
 }
 
 //----------
