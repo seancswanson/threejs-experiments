@@ -33,7 +33,7 @@ let init = () => {
 
   // Set up the camera and position it.
   camera =  new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
-  camera.position.z = 50;
+  camera.position.set(0, 5, 100);
 
   // Set up the renderer and size it.
   renderer = new THREE.WebGLRenderer();
@@ -102,12 +102,18 @@ let createDonuts = () => {
 
 //----------
 let createFloor = () => {
-  let geometry = new THREE.PlaneGeometry(100, 100)
-  let material = new THREE.MeshBasicMaterial({color: randomColor()})
-  let floor = new THREE.Mesh(geometry, material)
-  floor.position.y = -12;
-  floor.rotation.y = 2;
-  scene.add(floor)
+  var texture = new THREE.TextureLoader()
+              .load('../assets/textures/grass.jpg', function ( texture ) {
+                texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+                texture.offset.set( 0, 0 );
+                texture.repeat.set( 5, 5 );
+  });
+  let geometry = new THREE.PlaneGeometry(100, 70);
+  let material = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide});
+  let floor = new THREE.Mesh(geometry, material);
+  scene.add(floor);
+  floor.position.set(0,-10,0);
+  floor.rotation.set(90,0,0);
 }
 
 //----------
