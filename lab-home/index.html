@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Laboratory</title>
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body >
+	<div class="content grid">
+		<div class="left no-select">
+			<div class="left-title">
+				<img src="img/swansong.png">
+				<p>Spatium laboratorium:</p>
+				<p>Experiments in Space and Time</p>
+			</div>
+			<ol type="i" class="left-experiment-list clickable">
+				<li class="left-experiment-list-item selected" data-id="Intro">Intro</li>
+				<li class="left-experiment-list-item" data-id="Donuts">Raining Donuts</li>
+				<li class="left-experiment-list-item" data-id="Saturn">Saturn and Her Rings</li>
+				<li class="left-experiment-list-item" data-id="Thing 1">Thing 1</li>
+				<li class="left-experiment-list-item" data-id="Thing 2">Thing 2</li>
+			</ol>
+		</div>
+		<div class="right">
+			<div class="right-corner no-select">
+				<span class="right-corner-title">Intro</span>
+				<a class="right-corner-github" href="#">GitHub</a>
+			</div>
+			<div class="intro">
+				<div class="intro-header">Welcome!</div>
+				<p class="intro-paragraph">My name is <a href="http://seancswanson.com" target="_blank">Sean</a>, and I'm a web developer based in Seattle!</p>
+				<p class="intro-paragraph">You've stumbled upon an archive of experiments wherein I explore the fantastic realm of three-dimensional programming.</p>
+				<p class="intro-paragraph">In the name of science and art I've started on a journey to investigate how to programmatically create models and animation in 3D.</p>
+				<p class="intro-paragraph">The ultimate aim of this investigation is to learn how to best wield 3D visualizations to create art, games, and to tell stories with beautiful data.</p>
+				<p class="intro-paragraph">In these experiments I am practicing modern JavaScript and am using the <a href="https://threejs.org/" target="_blank">Three.js</a> library, a cross-browser JavaScript library and Application Programming Interface used to create and display animated 3D computer graphics in a web browser that uses WebGL.</p>
+				<p class="intro-paragraph">The next step after a lot of cardio with these technologies is to dive into the underlying mathematics to understand WebGL further.</p>
+				<p class="intro-prompt">Select a project from the left to get started.</p>
+			</div>
+			<canvas class="hidden no-select" id="main-canvas-container"></canvas>
+		</div>
+	</div>
+	<script type="text/javascript" src="./lib/three.min.js"></script>
+	<script type="text/javascript" src="./lib/threeOrbitController.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+html {
+  box-sizing: border-box;
+  height: 100vh;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'PT Serif', serif;
+  overflow: hidden;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-select {
+  user-select: none;
+}
+
+/* Top Nav */
+
+.top-nav {
+  display: flex;
+  height: 50px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/*** Content ***/
+
+.grid {
+  display: grid;
+  grid-template-columns: 270px auto;
+  grid-template-rows: 100vh;
+}
+
+/* Left */
+
+.left {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  text-align: center;
+  border-right: 1px solid #EBEBEB;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-title {
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid #d3d3d3;
+  padding: 20px 20px 10px 20px;
+  margin: 0;
+  font-style: italic;
+}
+
+.left-title img{
+  width: 30%;
+}
+
+.left-experiment-list {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.left-experiment-list-item {
+  padding: 13px 0;
+  transition: .1s all linear;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, .02);
+}
+
+.left-experiment-list-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #d3d3d3;
+}
+
+.selected {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Right */
+
+.right {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+/* Corner */
+
+.right-corner {
+  font-size: .9em;
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+  width: auto;
+  position: absolute;
+  right: 0;
+  min-width: 150px;
+  border-bottom-left-radius: 10px;
+  align-items: center;
+  transition: .5s all ease;
+}
+
+.right-corner:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.right-corner-title {
+  flex-grow: 1;
+  flex-basis: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 10px 5px 10px 15px;
+  transition: .5s all ease;
+}
+
+.right-corner-title:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.right-corner-github {
+  flex-grow: 1;
+  flex-basis: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: .8em;
+  transition: .5s all ease;
+}
+
+.right-corner-github:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Intro */
+
+.intro {
+  background: rgba(255, 255, 255, 0.6);
+  width: 50%;
+  max-width: 600px;
+  min-width: 600px;
+  padding: 20px;
+  position: relative;
+  top: 15vh;
+  margin: 0 auto;
+  border: 3px solid #EBEBEB;
+  border-radius: 2px;
+  /* box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1); */
+}
+
+.intro a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: .5s all ease;
+}
+
+.intro a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.intro-header {
+  font-size: 2em;
+  text-align: left;
+  width: 80%;
+  border-bottom: 5px solid #829CD0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.intro-paragraph {
+  font-size: 1.2em;
+}
+
+.intro-prompt {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  color: #6D6D6D;
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
+/* Canvas */
+
+#main-canvas-container {
+}
