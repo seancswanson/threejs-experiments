@@ -1,5 +1,6 @@
 let donutClickPrompt = document.querySelector('.donut-click-prompt');
 let startDonutAnimation;
+let donutAnimationId;
 let donutSpinFactor = 0.03;
 let donutFallFactor = 0.09;
 let donuts = [];
@@ -39,16 +40,18 @@ let initDonuts = () => {
   controls.maxAzimuthAngle = Infinity; // radians
 
   camera.position.set(0, 8.5, 60);
-  console.log(camera.rotation);
   controls.update();
 
   createDonutSkyDome();
   createDonutFloor();
   handleDonutPromptClick();
+  mainDonutLoop();
 };
 
 //----------
 let mainDonutLoop = () => {
+  donutLoopId = requestAnimationFrame(mainDonutLoop);
+
   if (startDonutAnimation) {
     let x = throttleDonuts();
 
@@ -66,6 +69,7 @@ let mainDonutLoop = () => {
       }
 
       if (donut.donut.position.y <= -20) {
+        donuts.splice(donuts.indexOf(donut), 1);
         scene.remove(donut.donut);
         donut.donut.geometry.dispose();
         donut.donut.material.dispose();
@@ -74,7 +78,6 @@ let mainDonutLoop = () => {
   }
 
   renderer.render(scene, camera);
-  requestAnimationFrame(mainDonutLoop);
 };
 
 //----------
@@ -112,11 +115,11 @@ let createDonuts = () => {
   // Assign a new Mesh object to the shape variable and pass in geometry and material.
   donutTorus = new THREE.Mesh(geometry, material);
   donutTorus.position.set(
-    randomInRange(-90, 90),
-    randomInRange(30, 35),
-    randomInRange(-90, 90)
+    randomInRange(-120, 120),
+    randomInRange(40, 50),
+    randomInRange(-120, 120)
   );
-  
+
   donutTorus.rotation.y += randomInRange(-2, 1);
 
   // Add it to the scene.

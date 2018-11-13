@@ -49,14 +49,19 @@
 
     if (projectId !== 'Donuts') {
       donutClickPrompt.classList.add('hidden');
+      cancelAnimationFrame( donutLoopId );
+    }
+
+    if (projectId !== 'Saturn') {
+      cancelAnimationFrame( saturnLoopId );
     }
 
     if (projectId === 'Donuts') {
       changeGitHubHref(projectId);
       initDonuts();
-      mainDonutLoop();
     } else if (projectId === 'Saturn') {
       changeGitHubHref(projectId);
+      initSaturn();
     } else if (projectId === 'Thing 1') {
       changeGitHubHref(projectId);
     } else if (projectId === 'Thing 2') {
