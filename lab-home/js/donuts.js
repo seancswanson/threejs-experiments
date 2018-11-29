@@ -6,6 +6,7 @@ let donutFallFactor = 0.09;
 let donuts = [];
 let donutFloor;
 let donutTorus;
+let donutLoopId;
 
 //----------
 let initDonuts = () => {
