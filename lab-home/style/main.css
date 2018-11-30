@@ -66,8 +66,16 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
-.left-title img {
-  width: 30%;
+.left-logo {
+  display: block;
+
+  width: 100px;
+  height: 100px;
+
+  background-image: url(../img/swansong-no-text-thick.svg);
+  background-size: 100px 100px;
+
+  margin: 0 auto;
 }
 
 .left-experiment-list {
