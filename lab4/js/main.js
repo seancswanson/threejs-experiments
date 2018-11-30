@@ -19,7 +19,7 @@ let init = () => {
 
   // Set up the camera and position it.
   camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
-  camera.position.set(0, 5, 20);
+  camera.position.set(0, 5, 30);
 
   // Set up the renderer and size it.
   renderer = new THREE.WebGLRenderer();
