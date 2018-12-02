@@ -1,14 +1,7 @@
-let canvasContainer = document.querySelector('#main-canvas-container');
 let scene, camera, renderer;
 let flapFactor = 0.8;
 let butterfly;
 let controls;
-
-//----------
-let randomInRange = (from, to) => {
-  let x = Math.random() * (to - from);
-  return x + from;
-}
 
 //----------
 // Initialize scene, camera, objects and renderer.
@@ -18,12 +11,12 @@ let init = () => {
   scene.background = new THREE.Color(0xababab);
 
   // Set up the camera and position it.
-  camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1000);
+  camera = new THREE.PerspectiveCamera(30, (window.innerWidth - 200) / window.innerHeight, 1, 1000);
   camera.position.set(0, 5, 30);
 
   // Set up the renderer and size it.
   renderer = new THREE.WebGLRenderer();
-  renderer.setSize((window.innerWidth / 1.01), (window.innerHeight / 1.09));
+  renderer.setSize(App.canvasDimensions.width, App.canvasDimensions.height);
 
   controls = new THREE.OrbitControls( camera );
 
@@ -35,13 +28,14 @@ let init = () => {
   scene.add( light );
 
   // Attach the canvas to the DOM.
-  canvasContainer.appendChild(renderer.domElement);
+  App.canvasContainer.appendChild(renderer.domElement);
 
   createButterfly();
 }
 
 //----------
 let mainLoop = () => {
+  App.butterflyLoopId = requestAnimationFrame(mainLoop);
 
   let leftWing = butterfly.geometry.vertices[2];
   let rightWing = butterfly.geometry.vertices[3];
@@ -55,8 +49,6 @@ let mainLoop = () => {
     flapFactor *= -1;
   }
 
-
-  requestAnimationFrame(mainLoop);
   controls.update();
   renderer.render(scene, camera);
 }
